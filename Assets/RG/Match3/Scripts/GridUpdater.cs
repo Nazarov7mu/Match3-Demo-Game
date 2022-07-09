@@ -6,6 +6,7 @@ namespace RG.Match3.Scripts {
     public class GridUpdater : MonoBehaviour {
         [Header("Scripts")] 
         [SerializeField] private GameData _gameData;
+        [SerializeField] private MatchFinder _matchFinder;
 
         /*
          https://gamedevbeginner.com/singletons-in-unity-the-right-way
@@ -25,7 +26,7 @@ namespace RG.Match3.Scripts {
         }
 
         /*
-         Overall algorithm:
+         Overall Algorithm:
             Go through each column bottom -> up
                 Find the number of empty Containers(skips) in the column
                 If there are skips below the Tile:
@@ -91,10 +92,10 @@ namespace RG.Match3.Scripts {
         // This coroutine is needed to disallow clicks while some Tiles are moving
         private IEnumerator WaitForMovementEnd(float seconds) {
             IsMoving = true;
-            
             yield return new WaitForSeconds(seconds * GameData.MovementOffset); // Extra offset as Lerp is not perfectly precise
-            
             IsMoving = false;
+            
+            _matchFinder.SearchForMatches(); // After the end of movement, call SearchForMatches()
         }
     }
 }

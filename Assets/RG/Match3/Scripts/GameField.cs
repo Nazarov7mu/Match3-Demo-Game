@@ -32,9 +32,9 @@ namespace RG.Match3.Scripts {
 
         private void CreateGridWithTiles() {
             /*
-             For each row and column 
-             Instantiate Container and Tile  
-             Assign Tile to the corresponding Container in the Grid
+             For each row and column:
+                 Instantiate Container and Tile  
+                 Assign Tile to the corresponding Container in the Grid
              */
             for (int row = 0; row < _gameData.NumOfRows; row++) {
                 for (int column = 0; column < _gameData.NumOfColumns; column++) {

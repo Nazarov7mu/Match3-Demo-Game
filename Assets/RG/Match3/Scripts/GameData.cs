@@ -12,6 +12,9 @@ namespace RG.Match3.Scripts {
         public const float StartPosY = 4.5f;
         public const float HopSize = 1f;
         
+        public const float TileMovementTime = 0.7f;
+        public const float MovementOffset = 1.05f; // 5%
+        
         public Container[][] Grid { get; set; } // Grid of Containers
 
     }

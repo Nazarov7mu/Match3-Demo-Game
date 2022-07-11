@@ -8,6 +8,7 @@ namespace RG.Match3.Scripts {
         public int NumOfRows => _numOfRows; 
         public int NumOfColumns => _numOfColumns; 
     
+        // Positions on the Scene
         public const float StartPosX = -4.5f;
         public const float StartPosY = 4.5f;
         public const float HopSize = 1f;

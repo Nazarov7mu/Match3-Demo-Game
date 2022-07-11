@@ -17,6 +17,12 @@ namespace RG.Match3.Scripts {
         [Header("Scripts")] 
         [SerializeField] private GameData _gameData;
 
+        /*
+         I am used to prefixing private fields with "_", as recommended by Microsoft 
+         (https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions). 
+         But overall, I am flexible to change my naming convention style, if the company uses another. 
+         I know several programming languages besides C#, so it is not a problem for me.
+        */
         private TileShape _prevShape;
 
         private void Awake() {
@@ -30,12 +36,13 @@ namespace RG.Match3.Scripts {
             CreateGridWithTiles();
         }
 
-        private void CreateGridWithTiles() {
-            /*
-             For each row and column:
+        /*
+         Algorithm for Creating and Populating the Grid:
+            For each row and column
                  Instantiate Container and Tile  
                  Assign Tile to the corresponding Container in the Grid
-             */
+        */
+        private void CreateGridWithTiles() {
             for (int row = 0; row < _gameData.NumOfRows; row++) {
                 for (int column = 0; column < _gameData.NumOfColumns; column++) {
                     Container container = Instantiate(_containerPrefab, _containersTransform).GetComponent<Container>();
